@@ -40,3 +40,4 @@
 [x] 39. Completely redesigned Attendance page with executive, responsive, and professional styling including modern dashboard layout, enhanced statistics, and improved user experience
 [x] 40. Fixed attendance record editing validation error by updating schema to handle date strings from frontend forms
 [x] 41. Fixed approved leave count display in Leave Management page by adding getAllLeaveRequests method and correcting API route
+[x] 42. Completely redesigned Apply for Leave form with executive, responsive, and professional styling including modern card layout, enhanced typography, visual hierarchy, and interactive elements
