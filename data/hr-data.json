@@ -376,7 +376,7 @@
       "status": "present",
       "notes": "",
       "id": 18,
-      "checkOutTime": null
+      "checkOutTime": "2025-09-09T11:24:02.058Z"
     },
     {
       "userId": 15,
@@ -597,6 +597,17 @@
       "id": 20,
       "approvedById": 1,
       "createdAt": "2025-09-03T09:08:48.648Z"
+    },
+    {
+      "userId": 1,
+      "type": "sick",
+      "startDate": "2025-09-09T11:19:29.665Z",
+      "endDate": "2025-09-16T18:30:00.000Z",
+      "reason": "test",
+      "status": "pending",
+      "id": 22,
+      "approvedById": null,
+      "createdAt": "2025-09-09T11:19:03.202Z"
     }
   ],
   "holidayRecords": [
@@ -2711,7 +2722,7 @@
       "type": "login",
       "title": "Successful Login",
       "message": "You have successfully logged in at 9/9/2025",
-      "isRead": false,
+      "isRead": true,
       "id": 160,
       "createdAt": "2025-09-09T09:13:58.543Z",
       "relatedUserId": null,
@@ -2722,7 +2733,7 @@
       "type": "login",
       "title": "Successful Login",
       "message": "You have successfully logged in at 9/9/2025",
-      "isRead": false,
+      "isRead": true,
       "id": 161,
       "createdAt": "2025-09-09T09:32:05.069Z",
       "relatedUserId": null,
@@ -2733,7 +2744,7 @@
       "type": "login",
       "title": "Successful Login",
       "message": "You have successfully logged in at 9/9/2025",
-      "isRead": false,
+      "isRead": true,
       "id": 162,
       "createdAt": "2025-09-09T09:55:25.144Z",
       "relatedUserId": null,
@@ -2766,7 +2777,7 @@
       "type": "login",
       "title": "Successful Login",
       "message": "You have successfully logged in at 9/9/2025",
-      "isRead": false,
+      "isRead": true,
       "id": 165,
       "createdAt": "2025-09-09T10:23:48.180Z",
       "relatedUserId": null,
@@ -2777,19 +2788,63 @@
       "type": "login",
       "title": "Successful Login",
       "message": "You have successfully logged in at 9/9/2025",
-      "isRead": false,
+      "isRead": true,
       "id": 166,
       "createdAt": "2025-09-09T11:09:45.341Z",
       "relatedUserId": null,
       "relatedLeaveId": null
+    },
+    {
+      "userId": 1,
+      "type": "login",
+      "title": "Successful Login",
+      "message": "You have successfully logged in at 9/9/2025",
+      "isRead": true,
+      "id": 167,
+      "createdAt": "2025-09-09T11:17:31.862Z",
+      "relatedUserId": null,
+      "relatedLeaveId": null
+    },
+    {
+      "userId": 1,
+      "type": "leave_request",
+      "title": "Leave Request Submitted",
+      "message": "Your leave request from 9/9/2025 to 9/16/2025 has been submitted and is pending approval.",
+      "isRead": true,
+      "relatedLeaveId": 22,
+      "id": 168,
+      "createdAt": "2025-09-09T11:19:03.244Z",
+      "relatedUserId": null
+    },
+    {
+      "userId": 1,
+      "type": "leave_request",
+      "title": "New Leave Request",
+      "message": "Rohan Bhosale has submitted a leave request from 9/9/2025 to 9/16/2025 for sick leave.",
+      "isRead": true,
+      "relatedLeaveId": 22,
+      "relatedUserId": 1,
+      "id": 169,
+      "createdAt": "2025-09-09T11:19:03.289Z"
+    },
+    {
+      "userId": 2,
+      "type": "leave_request",
+      "title": "New Leave Request",
+      "message": "Rohan Bhosale has submitted a leave request from 9/9/2025 to 9/16/2025 for sick leave.",
+      "isRead": false,
+      "relatedLeaveId": 22,
+      "relatedUserId": 1,
+      "id": 170,
+      "createdAt": "2025-09-09T11:19:03.333Z"
     }
   ],
   "currentUserId": 17,
   "currentDepartmentId": 9,
   "currentAttendanceId": 20,
-  "currentLeaveRequestId": 22,
+  "currentLeaveRequestId": 23,
   "currentHolidayId": 63,
-  "currentNotificationId": 167,
+  "currentNotificationId": 171,
   "paymentRecords": [
     {
       "employeeId": 1,
