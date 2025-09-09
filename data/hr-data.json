@@ -982,6 +982,12 @@
       "date": "2025-09-09T18:30:00.000Z",
       "description": "test2",
       "id": 63
+    },
+    {
+      "name": "Software",
+      "date": "2025-09-10T18:30:00.000Z",
+      "description": "test",
+      "id": 64
     }
   ],
   "notifications": [
@@ -2854,14 +2860,25 @@
       "createdAt": "2025-09-09T11:30:26.990Z",
       "relatedUserId": null,
       "relatedLeaveId": null
+    },
+    {
+      "userId": 1,
+      "type": "login",
+      "title": "Successful Login",
+      "message": "You have successfully logged in at 9/9/2025",
+      "isRead": false,
+      "id": 172,
+      "createdAt": "2025-09-09T11:36:45.489Z",
+      "relatedUserId": null,
+      "relatedLeaveId": null
     }
   ],
   "currentUserId": 17,
   "currentDepartmentId": 9,
   "currentAttendanceId": 20,
   "currentLeaveRequestId": 23,
-  "currentHolidayId": 64,
-  "currentNotificationId": 172,
+  "currentHolidayId": 65,
+  "currentNotificationId": 173,
   "paymentRecords": [
     {
       "employeeId": 1,
