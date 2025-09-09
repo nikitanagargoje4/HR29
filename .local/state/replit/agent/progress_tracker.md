@@ -42,3 +42,4 @@
 [x] 41. Fixed approved leave count display in Leave Management page by adding getAllLeaveRequests method and correcting API route
 [x] 42. Completely redesigned Apply for Leave form with executive, responsive, and professional styling including modern card layout, enhanced typography, visual hierarchy, and interactive elements
 [x] 43. Completely redesigned Holiday Calendar page with executive, responsive, and professional styling matching Employee Management page design including modern dashboard layout, key metrics, enhanced calendar, and professional holiday cards
+[x] 44. Completely redesigned Add New Holiday form with executive, responsive, and professional styling including modern card layout, enhanced calendar component, motion animations, and improved user experience

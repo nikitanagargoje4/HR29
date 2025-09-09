@@ -455,85 +455,216 @@ export default function HolidaysPage() {
                       Add Holiday
                     </Button>
                   </DialogTrigger>
-                  <DialogContent className="max-w-md max-h-[90vh] overflow-y-auto">
-                    <DialogHeader>
-                      <DialogTitle>Add New Holiday</DialogTitle>
-                    </DialogHeader>
-                    <Form {...addForm}>
-                      <form onSubmit={addForm.handleSubmit(onAddSubmit)} className="space-y-4 px-1">
-                        <FormField
-                          control={addForm.control}
-                          name="name"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel>Holiday Name</FormLabel>
-                              <FormControl>
-                                <Input placeholder="Enter holiday name" {...field} />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                        
-                        <FormField
-                          control={addForm.control}
-                          name="date"
-                          render={({ field }) => (
-                            <FormItem className="flex flex-col">
-                              <FormLabel>Date</FormLabel>
-                              <div className="w-full flex justify-center">
-                                <Calendar
-                                  mode="single"
-                                  selected={field.value}
-                                  onSelect={field.onChange}
-                                  className="rounded-md border w-fit"
+                  <DialogContent className="max-w-4xl max-h-[95vh] overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-50">
+                    {/* Header Section */}
+                    <div className="text-center space-y-4 pb-6 border-b border-slate-200">
+                      <motion.div
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                        className="bg-gradient-to-br from-teal-100 to-emerald-200 w-16 h-16 rounded-2xl mx-auto flex items-center justify-center shadow-lg"
+                      >
+                        <Plus className="w-8 h-8 text-teal-700" />
+                      </motion.div>
+                      
+                      <div>
+                        <DialogTitle className="text-2xl font-bold bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent">
+                          Add New Holiday
+                        </DialogTitle>
+                        <p className="text-slate-600 text-base mt-2">
+                          Create a new company holiday for the calendar
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="overflow-y-auto max-h-[70vh] mt-6">
+                      <Form {...addForm}>
+                        <form onSubmit={addForm.handleSubmit(onAddSubmit)} className="space-y-8">
+                          {/* Holiday Details Section */}
+                          <Card className="border-2 border-slate-200 shadow-lg hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-white via-slate-50 to-white">
+                            <CardContent className="p-8">
+                              <div className="space-y-6">
+                                <div className="flex items-center space-x-3 mb-6">
+                                  <div className="bg-gradient-to-br from-amber-100 to-amber-200 p-3 rounded-xl shadow-md">
+                                    <Gift className="w-6 h-6 text-amber-700" />
+                                  </div>
+                                  <div>
+                                    <h3 className="text-xl font-bold text-slate-900">Holiday Information</h3>
+                                    <p className="text-slate-600">Enter the basic details for the holiday</p>
+                                  </div>
+                                </div>
+                                
+                                <FormField
+                                  control={addForm.control}
+                                  name="name"
+                                  render={({ field }) => (
+                                    <FormItem>
+                                      <FormLabel className="text-base font-semibold text-slate-800">Holiday Name *</FormLabel>
+                                      <FormControl>
+                                        <Input 
+                                          placeholder="Enter holiday name (e.g., Christmas Day, Independence Day)" 
+                                          {...field} 
+                                          className="h-12 text-base border-2 border-slate-200 hover:border-teal-300 focus:border-teal-500 transition-all duration-200 bg-white shadow-sm"
+                                        />
+                                      </FormControl>
+                                      <FormMessage className="text-red-600 font-medium" />
+                                    </FormItem>
+                                  )}
+                                />
+                                
+                                <FormField
+                                  control={addForm.control}
+                                  name="description"
+                                  render={({ field }) => (
+                                    <FormItem>
+                                      <FormLabel className="text-base font-semibold text-slate-800">Description</FormLabel>
+                                      <FormControl>
+                                        <Textarea 
+                                          placeholder="Add a description for this holiday (e.g., Federal holiday, Religious celebration, Company event)" 
+                                          className="resize-none text-base min-h-[100px] border-2 border-slate-200 hover:border-teal-300 focus:border-teal-500 transition-all duration-200 bg-white shadow-sm p-4"
+                                          {...field} 
+                                        />
+                                      </FormControl>
+                                      <FormMessage className="text-red-600 font-medium" />
+                                      <p className="text-sm text-slate-500 mt-2">
+                                        {field.value?.length || 0} characters
+                                      </p>
+                                    </FormItem>
+                                  )}
                                 />
                               </div>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                        
-                        <FormField
-                          control={addForm.control}
-                          name="description"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel>Description (Optional)</FormLabel>
-                              <FormControl>
-                                <Textarea 
-                                  placeholder="Add description" 
-                                  className="resize-none" 
-                                  {...field} 
+                            </CardContent>
+                          </Card>
+
+                          {/* Date Selection Section */}
+                          <Card className="border-2 border-slate-200 shadow-lg hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-white via-slate-50 to-white">
+                            <CardContent className="p-8">
+                              <div className="space-y-6">
+                                <div className="flex items-center space-x-3 mb-6">
+                                  <div className="bg-gradient-to-br from-teal-100 to-teal-200 p-3 rounded-xl shadow-md">
+                                    <CalendarIcon className="w-6 h-6 text-teal-700" />
+                                  </div>
+                                  <div>
+                                    <h3 className="text-xl font-bold text-slate-900">Date Selection</h3>
+                                    <p className="text-slate-600">Choose the date for this holiday</p>
+                                  </div>
+                                </div>
+                                
+                                <FormField
+                                  control={addForm.control}
+                                  name="date"
+                                  render={({ field }) => (
+                                    <FormItem className="flex flex-col">
+                                      <FormLabel className="text-base font-semibold text-slate-800 mb-4">Holiday Date *</FormLabel>
+                                      <div className="flex justify-center">
+                                        <Calendar
+                                          mode="single"
+                                          selected={field.value}
+                                          onSelect={field.onChange}
+                                          className="rounded-xl border-2 border-slate-200 shadow-lg bg-white"
+                                          classNames={{
+                                            months: "flex flex-col sm:flex-row space-y-4 sm:space-x-4 sm:space-y-0",
+                                            month: "space-y-4",
+                                            caption: "flex justify-center pt-1 relative items-center",
+                                            caption_label: "text-lg font-bold",
+                                            nav: "space-x-1 flex items-center",
+                                            nav_button: "h-8 w-8 bg-transparent p-0 opacity-50 hover:opacity-100 border border-slate-200 hover:bg-slate-100 rounded-md",
+                                            nav_button_previous: "absolute left-1",
+                                            nav_button_next: "absolute right-1",
+                                            table: "w-full border-collapse space-y-1",
+                                            head_row: "flex",
+                                            head_cell: "text-slate-500 rounded-md w-10 font-medium text-sm",
+                                            row: "flex w-full mt-2",
+                                            cell: "text-center text-sm p-0 relative first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md focus-within:relative focus-within:z-20",
+                                            day: "h-10 w-10 p-0 font-medium hover:bg-teal-100 hover:text-teal-900 rounded-md transition-colors",
+                                            day_selected: "bg-teal-600 text-white hover:bg-teal-700 hover:text-white focus:bg-teal-600 focus:text-white rounded-md",
+                                            day_today: "bg-slate-100 text-slate-900 font-bold",
+                                            day_outside: "text-slate-400 opacity-50",
+                                            day_disabled: "text-slate-400 opacity-50 cursor-not-allowed",
+                                            day_range_middle: "aria-selected:bg-slate-100 aria-selected:text-slate-900",
+                                            day_hidden: "invisible",
+                                          }}
+                                        />
+                                      </div>
+                                      <FormMessage className="text-red-600 font-medium mt-2" />
+                                      
+                                      {field.value && (
+                                        <motion.div 
+                                          initial={{ opacity: 0, scale: 0.95 }}
+                                          animate={{ opacity: 1, scale: 1 }}
+                                          transition={{ duration: 0.3 }}
+                                          className="bg-gradient-to-r from-emerald-50 via-teal-50 to-emerald-50 p-4 rounded-xl border-2 border-emerald-200 shadow-md mt-4"
+                                        >
+                                          <div className="flex items-center justify-between">
+                                            <div className="flex items-center space-x-3">
+                                              <div className="bg-gradient-to-br from-emerald-100 to-emerald-200 p-2 rounded-lg">
+                                                <CheckCircle2 className="w-5 h-5 text-emerald-700" />
+                                              </div>
+                                              <div>
+                                                <p className="text-base font-semibold text-emerald-900">
+                                                  Selected Date: {format(field.value, 'EEEE, MMMM d, yyyy')}
+                                                </p>
+                                                <p className="text-sm text-emerald-700">
+                                                  Holiday will be added to the company calendar
+                                                </p>
+                                              </div>
+                                            </div>
+                                            <Badge 
+                                              variant="secondary" 
+                                              className="bg-emerald-100 text-emerald-800 border-emerald-300 text-sm px-3 py-1 font-semibold"
+                                            >
+                                              {format(field.value, 'MMM d')}
+                                            </Badge>
+                                          </div>
+                                        </motion.div>
+                                      )}
+                                    </FormItem>
+                                  )}
                                 />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                        
-                        <div className="flex flex-col sm:flex-row justify-end space-y-2 sm:space-y-0 sm:space-x-2 pt-4">
-                          <Button 
-                            type="button" 
-                            variant="outline" 
-                            onClick={() => setIsAddOpen(false)}
-                            className="w-full sm:w-auto"
-                          >
-                            Cancel
-                          </Button>
-                          <Button 
-                            type="submit"
-                            className="bg-teal-600 hover:bg-teal-700 w-full sm:w-auto"
-                            disabled={createHolidayMutation.isPending}
-                          >
-                            {createHolidayMutation.isPending && (
-                              <div className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent"></div>
-                            )}
-                            Add Holiday
-                          </Button>
-                        </div>
-                      </form>
-                    </Form>
+                              </div>
+                            </CardContent>
+                          </Card>
+                          
+                          {/* Action Buttons */}
+                          <Card className="border-2 border-slate-200 shadow-lg bg-gradient-to-br from-white via-slate-50 to-white">
+                            <CardContent className="p-8">
+                              <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+                                <div className="flex items-center space-x-3">
+                                  <div className="bg-gradient-to-br from-slate-100 to-slate-200 p-3 rounded-xl">
+                                    <CheckCircle2 className="w-6 h-6 text-slate-700" />
+                                  </div>
+                                  <div>
+                                    <h3 className="text-lg font-bold text-slate-900">Review & Create</h3>
+                                    <p className="text-slate-600">Confirm your holiday details and add to calendar</p>
+                                  </div>
+                                </div>
+                                
+                                <div className="flex flex-col-reverse lg:flex-row gap-4">
+                                  <Button 
+                                    type="button" 
+                                    variant="outline" 
+                                    onClick={() => setIsAddOpen(false)}
+                                    className="h-12 px-8 text-base font-semibold border-2 border-slate-300 hover:bg-slate-50 hover:border-slate-400 transition-all duration-200"
+                                  >
+                                    Cancel
+                                  </Button>
+                                  <Button 
+                                    type="submit"
+                                    className="h-12 px-8 text-base font-semibold bg-gradient-to-r from-teal-600 via-teal-600 to-emerald-600 hover:from-teal-700 hover:via-teal-700 hover:to-emerald-700 shadow-lg hover:shadow-xl transition-all duration-200 text-white"
+                                    disabled={createHolidayMutation.isPending}
+                                  >
+                                    {createHolidayMutation.isPending && (
+                                      <div className="mr-2 h-5 w-5 animate-spin rounded-full border-2 border-white border-t-transparent"></div>
+                                    )}
+                                    Create Holiday
+                                  </Button>
+                                </div>
+                              </div>
+                            </CardContent>
+                          </Card>
+                        </form>
+                      </Form>
+                    </div>
                   </DialogContent>
                 </Dialog>
               )}
