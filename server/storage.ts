@@ -37,6 +37,7 @@ export interface IStorage {
   // Leave methods
   getLeaveRequest(id: number): Promise<LeaveRequest | undefined>;
   getLeaveRequestsByUser(userId: number): Promise<LeaveRequest[]>;
+  getAllLeaveRequests(): Promise<LeaveRequest[]>;
   getPendingLeaveRequests(): Promise<LeaveRequest[]>;
   createLeaveRequest(leaveRequest: InsertLeaveRequest): Promise<LeaveRequest>;
   updateLeaveRequest(id: number, leaveRequest: Partial<LeaveRequest>): Promise<LeaveRequest | undefined>;
@@ -355,6 +356,10 @@ export class MemStorage implements IStorage {
     return Array.from(this.leaveRequests.values()).filter(
       (request) => request.userId === userId,
     );
+  }
+
+  async getAllLeaveRequests(): Promise<LeaveRequest[]> {
+    return Array.from(this.leaveRequests.values());
   }
 
   async getPendingLeaveRequests(): Promise<LeaveRequest[]> {

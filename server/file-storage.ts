@@ -380,6 +380,10 @@ export class FileStorage implements IStorage {
     return this.data.leaveRequests.filter(l => l.userId === userId);
   }
 
+  async getAllLeaveRequests(): Promise<LeaveRequest[]> {
+    return this.data.leaveRequests;
+  }
+
   async getPendingLeaveRequests(): Promise<LeaveRequest[]> {
     return this.data.leaveRequests.filter(l => l.status === 'pending');
   }

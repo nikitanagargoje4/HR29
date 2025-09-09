@@ -431,7 +431,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       // If no query params, return all requests (for admins/HR)
       if (req.user && (req.user.role === 'admin' || req.user.role === 'hr')) {
-        const requests = await storage.getPendingLeaveRequests();
+        const requests = await storage.getAllLeaveRequests();
         return res.json(requests);
       }
       
